@@ -11,8 +11,8 @@
 						<ContentPresenter />
 					</ContentView>
 					<StackLayout x:Name="stackFooterContent" IsVisible="{x:Static local:AudioPlayer.Current.IsLoaded}">
-						<Label Text="IsPlaying Value:" FontSize="24" />
-						<Label text="{x:Static local:AudioPlayer.Current.IsPlaying}" />
+						<Label Text="IsPlaying Value:"/>
+						<Switch IsToggled="{x:Static local:AudioPlayer.Current.IsPlaying}" />
 						<Button Text="Toggle IsPlaying" Clicked="Click_PlayPause" />
 					</StackLayout>
 				</StackLayout>
