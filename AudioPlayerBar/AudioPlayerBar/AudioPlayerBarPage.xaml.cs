@@ -11,6 +11,7 @@ namespace AudioPlayerBar
 
 		void Handle_Clicked(object sender, System.EventArgs e)
 		{
+			//Push up another view
 			Navigation.PushAsync(new AudioPlayerBarPage());
 		}
 	}

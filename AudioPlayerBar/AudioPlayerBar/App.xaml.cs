@@ -25,5 +25,11 @@ namespace AudioPlayerBar
 		{
 			// Handle when your app resumes
 		}
+
+		void Click_PlayPause(object sender, System.EventArgs e)
+		{
+			AudioPlayer.Current.IsPlaying = !AudioPlayer.Current.IsPlaying;
+		}
+
 	}
 }

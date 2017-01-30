@@ -8,8 +8,29 @@ namespace AudioPlayerBar
 		// Singleton for use throughout the app
 		public static AudioPlayer Current = new AudioPlayer();
 
+		//Don't allow creation of the class elsewhere in the app.
+		private AudioPlayer()
+		{
+		}
+
+		private bool _IsLoaded = true;
 		private bool _IsPlaying = false;
 
+		//property for whether or not a file is loaded (and whether to display the player bar)
+		public bool IsLoaded
+		{
+			get
+			{
+				return _IsLoaded;
+			}
+			set
+			{
+				_IsLoaded = value;
+				OnPropertyChanged("IsLoaded");
+			}
+		}
+
+		//property for whether a file is being played or not
 		public bool IsPlaying
 		{
 			get

@@ -4,18 +4,19 @@
 		xmlns:local="clr-namespace:AudioPlayerBar;assembly=AudioPlayerBar" 
 		x:Class="AudioPlayerBar.App">
 	<Application.Resources>
-		<ControlTemplate x:Key="PlayerPageTemplate">
+		<ResourceDictionary>
+			<ControlTemplate x:Key="PlayerPageTemplate">
 				<StackLayout VerticalOptions="FillAndExpand">
 					<ContentView VerticalOptions="FillAndExpand">
 						<ContentPresenter />
 					</ContentView>
-					<StackLayout x:Name="stackFooterContent">
-						<Label Text="Footer Content" FontSize="24" />
-						<Label text="{x:Static local:AudioPlayer.Current.IsPlaying}"/>
-						<Button Text="Play/Pause" Clicked="Handle_Clicked"/>
-						</StackLayout>
+					<StackLayout x:Name="stackFooterContent" IsVisible="{x:Static local:AudioPlayer.Current.IsLoaded}">
+						<Label Text="IsPlaying Value:" FontSize="24" />
+						<Label text="{x:Static local:AudioPlayer.Current.IsPlaying}" />
+						<Button Text="Toggle IsPlaying" Clicked="Click_PlayPause" />
+					</StackLayout>
 				</StackLayout>
-
 			</ControlTemplate>
+		</ResourceDictionary>
 	</Application.Resources>
 </Application>

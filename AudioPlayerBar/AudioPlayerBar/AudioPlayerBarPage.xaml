@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-		xmlns:local="clr-namespace:AudioPlayerBar" 
+		xmlns:local="clr-namespace:AudioPlayerBar;assembly=AudioPlayerBar" 
 		x:Class="AudioPlayerBar.AudioPlayerBarPage"
+		Title="Audio Player"
+		ControlTemplate="{StaticResource PlayerPageTemplate}"
 		>
 	<Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
 	<Button Text="Open another view" Clicked="Handle_Clicked"/>
