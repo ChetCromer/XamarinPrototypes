@@ -14,9 +14,10 @@
 						<Label Text="Footer Content" FontSize="24" />
 						<Label text="{x:Static local:AudioPlayer.Current.IsPlaying}"/>
 						<Button Text="Play/Pause" Clicked="Handle_Clicked"/>
-						
+
 						</StackLayout>
 				</StackLayout>
+
 			</ControlTemplate>
 		</ResourceDictionary>
 	</Application.Resources>
