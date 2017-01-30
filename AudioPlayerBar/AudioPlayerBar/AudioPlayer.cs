@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
+using Xamarin.Forms;
 
 namespace AudioPlayerBar
 {
-	public class AudioPlayer : INotifyPropertyChanged
+	public  class AudioPlayer :INotifyPropertyChanged
 	{
 		// Singleton for use throughout the app
 		public static AudioPlayer Current = new AudioPlayer();
@@ -13,22 +14,7 @@ namespace AudioPlayerBar
 		{
 		}
 
-		private bool _IsLoaded = true;
 		private bool _IsPlaying = false;
-
-		//property for whether or not a file is loaded (and whether to display the player bar)
-		public bool IsLoaded
-		{
-			get
-			{
-				return _IsLoaded;
-			}
-			set
-			{
-				_IsLoaded = value;
-				OnPropertyChanged("IsLoaded");
-			}
-		}
 
 		//property for whether a file is being played or not
 		public bool IsPlaying

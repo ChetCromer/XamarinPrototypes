@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace AudioPlayerBar
 {
@@ -29,6 +30,7 @@ namespace AudioPlayerBar
 		void Click_PlayPause(object sender, System.EventArgs e)
 		{
 			AudioPlayer.Current.IsPlaying = !AudioPlayer.Current.IsPlaying;
+			Debug.WriteLine(AudioPlayer.Current.IsPlaying.ToString());
 		}
 
 	}
