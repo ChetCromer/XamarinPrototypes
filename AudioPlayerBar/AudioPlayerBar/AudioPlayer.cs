@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
+using System.Threading;
 
 namespace AudioPlayerBar
 {
@@ -10,7 +11,22 @@ namespace AudioPlayerBar
 	{
 		public static AudioPlayer Instance { get; private set; }
 		static AudioPlayer() { Instance = new AudioPlayer(); }
-		private AudioPlayer() { }
+		private AudioPlayer()
+		{
+
+			Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
+			{
+				if (_IsPlaying)
+				{
+					CurrentPosition = DateTime.Now.Subtract(_StartTime).TotalSeconds;
+				}
+				return true;
+			}
+			);
+
+		}
+
+
 
 		private string _title = "Player Title";
 		public string Title
@@ -29,6 +45,20 @@ namespace AudioPlayerBar
 			set
 			{
 				SetValue(ref _IsPlaying, value);
+			}
+		}
+
+		private DateTime _StartTime = DateTime.Now;
+		private double _CurrentPosition = 0;
+		public double CurrentPosition
+		{
+			get
+			{
+				return _CurrentPosition;
+			}
+			set
+			{
+				SetValue(ref _CurrentPosition, value);
 			}
 		}
 

@@ -11,8 +11,12 @@
 						<ContentPresenter />
 					</ContentView>
 					<StackLayout x:Name="stackFooterContent">
+						<Label Text="Title"/>
 						<Label Text="{Binding Source={x:Static local:AudioPlayer.Instance},Path=Title}"/>
+						<Label Text="IsPlaying"/>
 						<Switch IsToggled="{Binding Source={x:Static local:AudioPlayer.Instance},Path=IsPlaying}" />
+						<Label Text="CurrentPosition"/>
+						<Label Text="{Binding Source={x:Static local:AudioPlayer.Instance},Path=CurrentPosition}"/>
 						<Button Text="Change Title/IsPlaying Values" Clicked="Click_PlayPause" />
 					</StackLayout>
 				</StackLayout>
