@@ -32,9 +32,6 @@
     <EmbeddedResource Include="MyContentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyNavigationPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -44,9 +41,7 @@
     <Compile Include="MyContentPage.xaml.cs">
       <DependentUpon>MyContentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyNavigationPage.xaml.cs">
-      <DependentUpon>MyNavigationPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="AudioPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

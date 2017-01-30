@@ -25,5 +25,10 @@ namespace CustomNavigationPage
 		{
 			// Handle when your app resumes
 		}
+
+		void Handle_Clicked(object sender, System.EventArgs e)
+		{
+			AudioPlayer.Current.IsPlaying = !AudioPlayer.Current.IsPlaying;
+		}
 	}
 }
