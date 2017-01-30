@@ -12,7 +12,7 @@
 					</ContentView>
 					<StackLayout x:Name="stackFooterContent">
 						<Label Text="IsPlaying Value:"/>
-						<Switch IsToggled="{TemplateBinding AudioPlayer.Current.IsPlaying}" />
+						<Switch IsToggled="{x:Static local:AudioPlayer.Current.IsPlaying}" />
 						<Button Text="Toggle IsPlaying" Clicked="Click_PlayPause" />
 					</StackLayout>
 				</StackLayout>
