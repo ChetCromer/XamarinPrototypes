@@ -1,22 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
 namespace AudioPlayerBar
 {
-	public  class AudioPlayer :INotifyPropertyChanged
+	public class AudioPlayer : INotifyPropertyChanged
 	{
-		// Singleton for use throughout the app
-		public static AudioPlayer Current = new AudioPlayer();
+		public static AudioPlayer Instance { get; private set; }
+		static AudioPlayer() { Instance = new AudioPlayer(); }
+		private AudioPlayer() { }
 
-		//Don't allow creation of the class elsewhere in the app.
-		private AudioPlayer()
+		private string _title = "Player Title";
+		public string Title
 		{
+			get { return _title; }
+			set { SetValue(ref _title, value); }
 		}
 
 		private bool _IsPlaying = false;
-
-		//property for whether a file is being played or not
 		public bool IsPlaying
 		{
 			get
@@ -25,19 +28,26 @@ namespace AudioPlayerBar
 			}
 			set
 			{
-				_IsPlaying = value;
-				OnPropertyChanged("IsPlaying");
+				SetValue(ref _IsPlaying, value);
 			}
 		}
 
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected virtual void OnPropertyChanged(string propertyName)
+		protected void SetValue<T>(ref T field, T value,
+			[CallerMemberName]string propertyName = null)
 		{
-			if (PropertyChanged == null)
-				return;
-
-			PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			if (!EqualityComparer<T>.Default.Equals(field, value))
+			{
+				field = value;
+				OnPropertyChanged(propertyName);
+			}
 		}
+		protected virtual void OnPropertyChanged(
+			[CallerMemberName]string propertyName = null)
+		{
+			var handler = PropertyChanged;
+			if (handler != null)
+				handler(this, new PropertyChangedEventArgs(propertyName));
+		}
+		public event PropertyChangedEventHandler PropertyChanged;
 	}
 }
