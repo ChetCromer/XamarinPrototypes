@@ -9,7 +9,6 @@ namespace AudioPlayerBar
 		public App()
 		{
 			InitializeComponent();
-
 			MainPage = new NavigationPage( new AudioPlayerBarPage());
 		}
 
@@ -28,12 +27,7 @@ namespace AudioPlayerBar
 			// Handle when your app resumes
 		}
 
-		void Click_PlayPause(object sender, System.EventArgs e)
-		{
-			AudioPlayer.Instance.IsPlaying = !AudioPlayer.Instance.IsPlaying;
-			AudioPlayer.Instance.Title = DateTime.Now.ToString();
-			Debug.WriteLine(AudioPlayer.Instance.Title);
-		}
+
 
 	}
 }

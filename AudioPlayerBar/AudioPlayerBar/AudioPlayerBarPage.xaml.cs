@@ -14,5 +14,10 @@ namespace AudioPlayerBar
 			//Push up another view
 			Navigation.PushAsync(new AudioPlayerBarPage());
 		}
+
+		void OnTogglePlayerLoaded(object sender, System.EventArgs e)
+		{
+			AudioPlayer.Instance.IsLoaded = !AudioPlayer.Instance.IsLoaded;
+		}
 	}
 }

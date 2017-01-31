@@ -48,6 +48,19 @@ namespace AudioPlayerBar
 			}
 		}
 
+		private bool _IsLoaded = true;
+		public bool IsLoaded
+		{
+			get
+			{
+				return _IsLoaded;
+			}
+			set
+			{
+				SetValue(ref _IsLoaded, value);
+			}
+		}
+
 		private DateTime _StartTime = DateTime.Now;
 		private double _CurrentPosition = 0;
 		public double CurrentPosition

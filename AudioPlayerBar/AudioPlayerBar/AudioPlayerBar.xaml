@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:local="clr-namespace:AudioPlayerBar;assembly=AudioPlayerBar" 
+		x:Class="AudioPlayerBar.AudioPlayerBar">
+	<ContentView.Content>
+		<StackLayout IsVisible="{Binding Source={x:Static local:AudioPlayer.Instance},Path=IsLoaded}">
+			<Label Text="Title" />
+			<Label Text="{Binding Source={x:Static local:AudioPlayer.Instance},Path=Title}" />
+			<Label Text="IsPlaying" />
+			<Switch IsToggled="{Binding Source={x:Static local:AudioPlayer.Instance},Path=IsPlaying}" />
+			<Label Text="CurrentPosition" />
+			<Label Text="{Binding Source={x:Static local:AudioPlayer.Instance},Path=CurrentPosition}" />
+			<Button Text="Change Title/IsPlaying Values" Clicked="Click_PlayPause" />
+		</StackLayout>
+	</ContentView.Content>
+</ContentView>
