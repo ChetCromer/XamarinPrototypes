@@ -6,7 +6,7 @@
 	<Application.Resources>
 		<ResourceDictionary>
 			<ControlTemplate x:Key="BasePageControlTemplate">
-				<StackLayout VerticalOptions="FillAndExpand" BackgroundColor="Black">
+				<StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White">
 					<ContentView VerticalOptions="FillAndExpand">
 						<ContentPresenter />
 					</ContentView>
